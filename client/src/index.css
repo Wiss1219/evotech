@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Roboto', sans-serif;
+    background-color: theme('colors.dark.DEFAULT');
+    color: theme('colors.light.DEFAULT');
+  }
+
+  body {
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .neon-glow {
+    @apply relative;
+    box-shadow: 0 0 10px theme('colors.primary' / 50%),
+                0 0 20px theme('colors.primary' / 30%),
+                0 0 30px theme('colors.primary' / 20%);
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-primary text-light rounded-full hover:bg-red-700 
+           transition-all duration-300 font-medium shadow-lg 
+           hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .input-primary {
+    @apply w-full px-6 py-3 bg-dark text-light rounded-full 
+           border-2 border-primary/20 focus:border-primary 
+           focus:outline-none transition-colors;
+  }
+
+  .card {
+    @apply bg-dark-card rounded-2xl p-6 transition-all duration-300
+           hover:shadow-xl hover:-translate-y-1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-lighter;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/50 rounded-full hover:bg-primary/70 transition-colors;
+}
